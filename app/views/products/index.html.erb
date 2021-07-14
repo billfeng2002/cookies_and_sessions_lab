@@ -1,0 +1,12 @@
+<h1>Products#index</h1>
+<p>Find me in app/views/products/index.html.erb</p>
+<%=session[:cart]%>
+<ul>
+    <%session[:cart].try(:each) do |item|%>
+        <li> <%=item%></li>
+    <% end %>
+</ul>
+
+<%=form_tag '/add', method: 'post'%>
+    <%= text_field_tag 'product'%>
+    <%= submit_tag "add to cart"%>
